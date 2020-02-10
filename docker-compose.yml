@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  web:
+    build: ./backend
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    command: ./entrypoint.sh
+    environment:
+      - SQL_HOST=db
+    env_file:
+      - .env
